@@ -1,0 +1,137 @@
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:paddingLeft="1dp"
+            android:paddingTop="1dp"
+            android:background="#f000"           
+             >
+             
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                                                     
+                >
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="0" />
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="1" />
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"                    
+                    android:src="@drawable/empty"
+                    cellNumber="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                
+                 >
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="3" />
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="4" />
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="5" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 >
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="6" />
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="7" />
+
+                <com.example.marubatsu.CellImageView
+                    android:id="@+id/imgv9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp" 
+                    android:src="@drawable/empty"
+                    cellNumber="8" />
+
+            </TableRow>
+        </TableLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="104dp"
+                android:layout_marginLeft="18dp"
+                android:text="リセット"
+                android:onClick="btnResetOnClick" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
