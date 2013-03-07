@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btnMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="57dp"
+        android:layout_marginLeft="35dp"
+        android:text="More" 
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnMore"
+        android:layout_alignBottom="@+id/btnMore"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="46dp"
+        android:text="Start"
+        android:onClick="onClick" />
+
+    <EditText
+        android:id="@+id/edtxtPlayer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnMore"
+        android:layout_alignLeft="@+id/btnMore"
+        android:layout_marginBottom="62dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/edtxtDealer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edtxtPlayer1"
+        android:layout_alignLeft="@+id/edtxtPlayer1"
+        android:layout_marginBottom="100dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/btnStand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnMore"
+        android:layout_alignBottom="@+id/btnMore"
+        android:layout_toRightOf="@+id/btnMore"
+        android:text="Stand" />
+    
+</RelativeLayout>
