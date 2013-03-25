@@ -47,7 +47,7 @@ def init_e()
   end
 end
 
-def print(wh,wo)
+def print(wh,wo,e,input_data)
   puts "wh-------"
   wh.each{|i|
     i.each{|j|
@@ -64,21 +64,21 @@ def sigmoid_function(val)
   return 1.0/(1.0 + Math.exp(-1.0 * val))
 end
 
-def olearn(wo,line,calc_result)
+def olearn(wo,e,line,calc_result)
   o = calc_result.output_val
-  0.step(input_data.size-1,1){|i|      
-       d = (line.get_col_data(2) - o) * o * (1-o)
-       wo[i] += $ALPAH*calc_result[i]*d    
-    }
-    e[2] -= $ALPAH*(-1.0)*d   
-  d = (input_data - o) * o *(1-o)
+  d = (line.get_col_data(2).to_i - o) * o * (1 - o)
+  0.step(wo.size-1,1){|i|           
+     wo[i] += $ALPAH*calc_result.hi[i]*d    
+  }
+  e[2] == e[2] + $ALPAH*(-1.0)*d
+  
 end
 
 def forward(wh,wo,e,line)
   u = 0.0
   hi = []
   0.step(wh.size-1,1){|i|
-    0.step(i.size - 1,1){|j|
+    0.step(InputData::COL_COUNT - 1,1){|j|
       u += line.get_col_data(j).to_i * wh[i][j]      
       puts "#{i},#{j}"
     }    
@@ -104,7 +104,7 @@ e = init_e()
 0.step(input_data.size - 1,1){|i|
   line = input_data[i]
   ret = forward(wh,wo,e,line)
-  olearn(wo,line,ret)
+  olearn(wo,e,line,ret)
 }
 
 v = print(wh,wo,e,input_data)

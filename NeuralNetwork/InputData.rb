@@ -1,10 +1,12 @@
 class InputData 
+  COL_COUNT = 3
   
   def initialize(index)
     @index = index
     @col_list = []
   end
   attr_accessor :index
+  
   
   def add_col_data(data)
     @col_list.push(data)
