@@ -1,5 +1,6 @@
 class InputData 
   COL_COUNT = 3
+  INPUT_COL_COUNT = 2
   
   def initialize(index)
     @index = index
