@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  win_id: MyString
+  word: MyString
+  remarks: MyString
+  count: 9.99
+
+two:
+  win_id: MyString
+  word: MyString
+  remarks: MyString
+  count: 9.99

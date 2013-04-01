@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: MyString
+  wine_name: MyString
+  comments: MyString
+  price: 
+
+two:
+  id: MyString
+  wine_name: MyString
+  comments: MyString
+  price: 

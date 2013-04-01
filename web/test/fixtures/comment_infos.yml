@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  wine_id: MyString
+  word: MyString
+  remarks: MyString
+  count: 1
+
+two:
+  wine_id: MyString
+  word: MyString
+  remarks: MyString
+  count: 1

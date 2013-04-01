@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @wine.id %>
+</p>
+
+<p>
+  <b>Wine name:</b>
+  <%= @wine.wine_name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @wine.comments %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @wine.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_wine_path(@wine) %> |
+<%= link_to 'Back', wines_path %>

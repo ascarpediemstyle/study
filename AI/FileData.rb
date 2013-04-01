@@ -20,8 +20,6 @@ class FileData
         puts line_analysis.to_s()
       end      
     }
-  end
-  
- 
+  end 
 end
 

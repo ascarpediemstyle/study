@@ -1,0 +1,2 @@
+module Wines::AnalyzeHelper
+end
