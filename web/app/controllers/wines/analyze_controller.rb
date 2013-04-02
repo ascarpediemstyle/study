@@ -15,13 +15,15 @@ class Wines::AnalyzeController < ApplicationController
     
     @wines.each{|target_wine|
       result = CorrelationAnalyzer::analyze(@wine,target_wine)
-      @result_dic.store(target_wine.id,result)
+      @result_dic.store(target_wine.wine_id,result)
     }
     
     @result_dic.each{|wine_id,info|
       
       info.word_dic.each{|word,data|                      
-        if data.present? then data.save end
+        if data.present?
+          data.save
+        end
       }
     }
     

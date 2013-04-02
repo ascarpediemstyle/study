@@ -5,12 +5,12 @@ class CorrelationAnalyzer
   
   def self.analyze(src_wine,dst_wine)    
     line = src_wine.comments
-    info = create_analyze_result_info(line)
+    info = create_analyze_result_info(src_wine.wine_id,line)
     return info
   end
    
   
-  def self.create_analyze_result_info(line)
+  def self.create_analyze_result_info(wine_id,line)
   
     info = AnalyzeResultInfo.new
     mecab = create_mecab() 
@@ -20,6 +20,7 @@ class CorrelationAnalyzer
       node = node.next
       
       result = AnalyzeResult.new
+      result.wine_id = wine_id
       result.word = node.surface
       result.remarks = node.feature     
       info.add_to_dic(result)

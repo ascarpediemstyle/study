@@ -1,6 +1,6 @@
 class AnalyzeResult < ActiveRecord::Base
   attr_accessible :count, :id, :remarks, :wine_id, :word
-  attr_accessor :count, :id, :remarks, :wine_id, :word
+  
   
   def count_up()
     if @count.blank? 
