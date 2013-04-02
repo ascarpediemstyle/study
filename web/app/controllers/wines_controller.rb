@@ -95,16 +95,28 @@ class WinesController < ApplicationController
   end
   
   def save_analyze_result(wine,wines)
+    
+    info = CorrelationAnalyzer::analyze(wine)
+    dic = info.word_dic
+    dic.each {|word,result|      
+      result.save        
+    }
+    
+=begin
     wines.each do |target_wine|
-      if wine.id == target_wine.id then next end
-      info = CorrelationAnalyzer::analyze(wine,target_wine)
-      dic = info.word_dic
-      dic.each {|word,result|
+      if wine.id == target_wine.id 
         
-        puts result.to_s
-        result.save        
-      }
+      else
+        info = CorrelationAnalyzer::analyze_with_target(wine,target_wine)
+        dic = info.word_dic
+        dic.each {|word,result|
+          
+          puts result.to_s
+          result.save        
+        }
+      end
     end
+=end
   end
   private :save_analyze_result
   

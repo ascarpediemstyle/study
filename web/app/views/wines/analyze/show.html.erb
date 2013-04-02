@@ -1,6 +1,35 @@
 <h1>Wine Analyze</h1>
 
+<p>
+  <b>Id:</b>
+  <%= @wine.id %>
+</p>
+
+<p>
+  <b>Wine name:</b>
+  <%= @wine.wine_name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @wine.comments %>
+</p>
+
+<p>
+  <b>Analyze Results:</b>
 <table>
+<% @analyze_results.each do |analyze_result| %>
+  <tr>
+    <td><%= analyze_result.word %></td>
+    <td><%= analyze_result.remarks %></td>
+    <td><%= analyze_result.count %></td>      
+  </tr>
+<% end %>
+</table>
+</p>
+
+<table>
+	
   <tr>
     <th>Id</th>
     <th>Wine name</th>
@@ -18,8 +47,7 @@
     <td><%= wine.wine_name %></td>
     <td><%= wine.comments.slice(0,200) %></td>
     <td><%= wine.price %></td>
-    <td><%= link_to 'Show', wine %></td>
-    <td><%= @result_dic.size %></td>    
+    <!-- <td><%= link_to 'detail', wine %></td>    -->
   </tr>
 <% end %>
 </table>

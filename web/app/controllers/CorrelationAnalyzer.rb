@@ -3,9 +3,15 @@ require 'MeCab'
 
 class CorrelationAnalyzer
   
-  def self.analyze(src_wine,dst_wine)    
+  def self.analyze_with_target(src_wine,dst_wine)    
     line = src_wine.comments
     info = create_analyze_result_info(src_wine.wine_id,line)
+    return info
+  end
+  
+  def self.analyze(wine)    
+    line = wine.comments
+    info = create_analyze_result_info(wine.wine_id,line)
     return info
   end
    
