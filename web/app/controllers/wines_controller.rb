@@ -44,10 +44,11 @@ class WinesController < ApplicationController
   # POST /wines.json
   def create
     @wine = Wine.new(params[:wine])
+    @wines = Wine.all
 
     respond_to do |format|
       if @wine.save
-        save_analyze_result(@wine)
+        save_analyze_result(@wine,@wines)
         
         format.html { redirect_to @wine, notice: 'Wine was successfully created.' }
         format.json { render json: @wine, status: :created, location: @wine }

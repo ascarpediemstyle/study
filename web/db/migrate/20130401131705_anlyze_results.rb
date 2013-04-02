@@ -1,5 +1,5 @@
 class AnlyzeResults < ActiveRecord::Migration
-  def up
+  def change
       create_table :analyze_results do |t|
       t.string :id
       t.string :wine_id

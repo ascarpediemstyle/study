@@ -7,6 +7,7 @@ class Wines::AnalyzeController < ApplicationController
   # GET /wines/analyze/1
   # GET /wines/analyze/1.json
   def show
+    
     @wines = Wine.all
     @wine = Wine.find(params[:id])
     
@@ -17,17 +18,10 @@ class Wines::AnalyzeController < ApplicationController
       @result_dic.store(target_wine.id,result)
     }
     
-    @result_dic.each{|wine_id,result|
+    @result_dic.each{|wine_id,info|
       
-      result.wrod_dic.each{|surface,data|        
-        
-        info = CommentInfo.new
-        info.wine_id = wine_id
-        info.word = data.surface
-        info.remarks = data.feature
-        info.count = data.count
-        
-        info.save
+      info.word_dic.each{|word,data|                      
+        if data.present? then data.save end
       }
     }
     
@@ -37,4 +31,15 @@ class Wines::AnalyzeController < ApplicationController
       format.json { render json: @wine }
     end
   end
+  
+  def destroy
+    
+    respond_to do |format|
+      format.html { redirect_to wines_url }
+      format.json { head :no_content }
+    end
+  end
+  
+  
+  
 end

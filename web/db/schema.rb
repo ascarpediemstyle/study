@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401131705) do
+ActiveRecord::Schema.define(:version => 20130402095934) do
 
   create_table "analyze_results", :force => true do |t|
     t.string   "wine_id"
     t.string   "word"
-    t.string   "remarks"
     t.integer  "count"
+    t.string   "remarks"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "wines", :force => true do |t|
+  create_table "wines", :primary_key => "wine_id", :force => true do |t|
     t.string   "wine_name"
     t.string   "comments"
     t.decimal  "price"

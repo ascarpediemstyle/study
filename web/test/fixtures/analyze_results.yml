@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  win_id: MyString
+  id: MyString
+  wine_id: MyString
   word: MyString
+  count: 1
   remarks: MyString
-  count: 9.99
 
 two:
-  win_id: MyString
+  id: MyString
+  wine_id: MyString
   word: MyString
+  count: 1
   remarks: MyString
-  count: 9.99

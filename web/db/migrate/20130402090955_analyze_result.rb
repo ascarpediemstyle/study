@@ -1,6 +1,6 @@
-class CreateAnlyzeResults < ActiveRecord::Migration
+class AnalyzeResult < ActiveRecord::Migration
   def change
-    create_table :analyze_results do |t|
+      create_table :analyze_results,{:primary_key => :id} do |t|
       t.string :id
       t.string :wine_id
       t.string :word

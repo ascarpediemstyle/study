@@ -1,16 +1,13 @@
-class CreateAnlyzeResults < ActiveRecord::Migration
+class CreateAnalyzeResults < ActiveRecord::Migration
   def change
     create_table :analyze_results do |t|
       t.string :id
       t.string :wine_id
       t.string :word
-      t.string :remarks
       t.integer :count
+      t.string :remarks
 
       t.timestamps
     end
-  end
-
-  def down
   end
 end
