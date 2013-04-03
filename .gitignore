@@ -3,22 +3,20 @@
 cache
 *.log
 
+web/log/development.log
+
+web/tmp/pids/server.pid
+
+web/tmp/pids/server.pid
+
+web/log/development.log
+
 web/tmp/pids/server.pid
 
 web/tmp/pids/server.pid
 
-*.pid
+web/log/development.log
 
-*.pid
+web/tmp/pids/server.pid
 
-*.log
-
-*.log
-
-*.log
-
-*.pid
-
-*.log
-
-*.jpg
+web/tmp/pids/server.pid

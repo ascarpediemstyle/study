@@ -1,22 +1,33 @@
 require 'rubygems'
 require 'MeCab'
+include Math
 
 class CorrelationAnalyzer
-  
-  def self.analyze_with_target(src_wine,dst_wine)    
-    line = src_wine.comments
-    info = create_analyze_result_info(src_wine.wine_id,line)
-    return info
-  end
-  
+
   def self.analyze(wine)    
     line = wine.comments
-    info = create_analyze_result_info(wine.wine_id,line)
+    info = create_analyze_result_info_by_line(wine.wine_id,line)
     return info
   end
    
+  def self.create_analyze_result_info(wine_id)
   
-  def self.create_analyze_result_info(wine_id,line)
+    info = AnalyzeResultInfo.new
+    rows = AnalyzeResult.find_all_by_wine_id(wine_id)
+    mecab = create_mecab()
+      
+    rows.each do |row|
+            
+      result = AnalyzeResult.new
+      result.wine_id = wine_id
+      result.word = row.word
+      result.remarks = row.remarks     
+      info.add_to_dic(result)
+    end      
+    return info
+  end 
+  
+  def self.create_analyze_result_info_by_line(wine_id,line)
   
     info = AnalyzeResultInfo.new
     mecab = create_mecab() 
@@ -41,6 +52,24 @@ class CorrelationAnalyzer
     s = "-d #{dir_path}#{dir_name}"
     mecab =MeCab::Tagger.new(s)
     return mecab
+  end
+  
+  def self.calc_correlation(src_wine,dst_wine)
+    
+    sum_of_squares = 0.0
+    
+    src_wine.analyze_results_info.word_dic do |word,src_info|
+      if dst_wine.analyze_results_info.word_dic.include?([word])
+        dst_info = dst_wine.analyze_results_info.word_dic[word]
+        
+        diff = dst_info.count - src_info.count
+        sum_of_squares += Math::sqrt(diff ** 2)
+        
+      end
+    
+    end
+    
+    return 1.0/(1 + sum_of_squares)
   end  
   
 end

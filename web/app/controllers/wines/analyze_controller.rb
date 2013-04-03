@@ -10,9 +10,13 @@ class Wines::AnalyzeController < ApplicationController
     
     @wines = Wine.all
     @wine = Wine.find(params[:id])
-    
+        
     @analyze_results = AnalyzeResult.find_all_by_wine_id(params[:id])
-     
+    @wine.analyze_results_info = CorrelationAnalyzer::create_analyze_result_info(params[:id])
+    
+    @wines.each do |wine|
+      wine.analyze_results_info = CorrelationAnalyzer::create_analyze_result_info(wine.wine_id)
+    end
     
     respond_to do |format|
       format.html # show.html.erb

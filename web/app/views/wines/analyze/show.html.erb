@@ -47,7 +47,7 @@
     <td><%= wine.wine_name %></td>
     <td><%= wine.comments.slice(0,200) %></td>
     <td><%= wine.price %></td>
-    <!-- <td><%= link_to 'detail', wine %></td>    -->
+    <td><%= CorrelationAnalyzer::calc_correlation(@wine,wine) %></td>    
   </tr>
 <% end %>
 </table>
