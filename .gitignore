@@ -4,3 +4,21 @@ cache
 *.log
 
 web/tmp/pids/server.pid
+
+web/tmp/pids/server.pid
+
+*.pid
+
+*.pid
+
+*.log
+
+*.log
+
+*.log
+
+*.pid
+
+*.log
+
+*.jpg
