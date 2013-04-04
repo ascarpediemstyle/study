@@ -16,7 +16,7 @@ class Wines::AnalyzeController < ApplicationController
     @wines.each do |wine|
       wine.analyze_results_info = CorrelationAnalyzer::create_analyze_result_info(wine.wine_id)
     end
-    
+   
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @wine }
@@ -51,10 +51,14 @@ class Wines::AnalyzeController < ApplicationController
     g.data("data3", [1, 2, 3, 5, 9, 8])
     g.data("data4", [9, 9, 8, 9, 10, 9])
 
-    g.labels = {0 => '2010/01', 2 => '2010/03', 4 => '2010/05'}   
+    g.labels = {0 => '2010/01', 2 => '2010/03', 4 => '2010/05'}
+    
+    file_name = "t.jpg"
+    g.write(file_name)
+    #send_file filename, :type => 'image/png', :disposition => 'inline'
 
 
-    send_data(g.to_blob, :type => 'image/png', :disposition=>'inline')
+    send_data(g.to_blob, :type => 'image/png', :disposition=>'inline', :filename => file_name)
   end
   
   

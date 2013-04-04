@@ -8,6 +8,10 @@ Web::Application.routes.draw do
   namespace "wines" do
      resources :analyze         
    end  
+ 
+ namespace "analyze" do
+     resources :image         
+   end  
   
   
   # The priority is based upon order of creation:
