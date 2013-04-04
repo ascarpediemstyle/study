@@ -94,7 +94,7 @@ class WinesController < ApplicationController
   def analyze
     redirect_to :controller => 'analyze_controller' ,:action => 'analyze'  
   end
-  
+    
   def save_analyze_result(wine,wines)
     
     info = CorrelationAnalyzer::analyze(wine)

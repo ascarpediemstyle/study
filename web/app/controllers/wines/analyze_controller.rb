@@ -3,7 +3,6 @@ require "CorrelationAnalyzer"
 
 class Wines::AnalyzeController < ApplicationController
   
-  
   # GET /wines/analyze/1
   # GET /wines/analyze/1.json
   def show
@@ -39,6 +38,23 @@ class Wines::AnalyzeController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @wine }
     end    
+  end
+  
+  def image
+    g = Gruff::Line.new 500
+    g.title = "My Graph" 
+
+    g.theme_37signals
+
+    g.data("data1", [1, 3, 3, 6, 4, 3])
+    g.data("data2", [7, 8, 7, 10, 8, 9])
+    g.data("data3", [1, 2, 3, 5, 9, 8])
+    g.data("data4", [9, 9, 8, 9, 10, 9])
+
+    g.labels = {0 => '2010/01', 2 => '2010/03', 4 => '2010/05'}   
+
+
+    send_data(g.to_blob, :type => 'image/png', :disposition=>'inline')
   end
   
   
