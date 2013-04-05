@@ -5,7 +5,7 @@ class Wines::AnalyzeController < ApplicationController
   
   # GET /wines/analyze/1
   # GET /wines/analyze/1.json
-  def show
+  def show    
     
     @wines = Wine.all
     @wine = Wine.find(params[:id])
@@ -16,6 +16,8 @@ class Wines::AnalyzeController < ApplicationController
     @wines.each do |wine|
       wine.analyze_results_info = CorrelationAnalyzer::create_analyze_result_info(wine.wine_id)
     end
+    
+    
    
     respond_to do |format|
       format.html # show.html.erb
@@ -41,7 +43,8 @@ class Wines::AnalyzeController < ApplicationController
   end
   
   def image
-    g = Gruff::Line.new 500
+    
+    g = Gruff::Dot.new 500
     g.title = "My Graph" 
 
     g.theme_37signals
@@ -53,10 +56,7 @@ class Wines::AnalyzeController < ApplicationController
 
     g.labels = {0 => '2010/01', 2 => '2010/03', 4 => '2010/05'}
     
-    file_name = "t.jpg"
-    g.write(file_name)
-    #send_file filename, :type => 'image/png', :disposition => 'inline'
-
+    file_name = "t.jpg"    
 
     send_data(g.to_blob, :type => 'image/png', :disposition=>'inline', :filename => file_name)
   end

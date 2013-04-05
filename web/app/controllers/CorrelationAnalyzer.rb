@@ -58,11 +58,11 @@ class CorrelationAnalyzer
     
     sum_of_squares = 0.0
     
-    src_wine.analyze_results_info.word_dic do |word,src_info|
-      if dst_wine.analyze_results_info.word_dic.include?([word])
+    src_wine.analyze_results_info.word_dic.each do |word,src_info|
+      if dst_wine.analyze_results_info.word_dic.include?(word)
         dst_info = dst_wine.analyze_results_info.word_dic[word]
         
-        diff = dst_info.count - src_info.count
+        diff = dst_info.count.to_i - src_info.count.to_i
         sum_of_squares += Math::sqrt(diff ** 2)
         
       end

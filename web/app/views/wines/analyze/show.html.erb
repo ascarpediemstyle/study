@@ -5,7 +5,7 @@
   <%= @wine.id %>
 </p>
 
-<p>
+<p>ß
   <b>Wine name:</b>
   <%= @wine.wine_name %>
 </p>
@@ -47,7 +47,8 @@
     <td><%= wine.wine_name %></td>
     <td><%= wine.comments.slice(0,200) %></td>
     <td><%= wine.price %></td>
-    <td><%= CorrelationAnalyzer::calc_correlation(@wine,wine) %></td>    
+    <td><%= CorrelationAnalyzer::calc_correlation(@wine,wine) %></td> 
+     
   </tr>
 <% end %>
 </table>

@@ -5,13 +5,17 @@ Web::Application.routes.draw do
     
   end
   
-  namespace "wines" do
-     resources :analyze         
-   end  
+  namespace 'wines' do
+    resources :analyze do
+      member do
+        get 'image'
+      end
+    end
+  end
+    
+    
  
- namespace "analyze" do
-     resources :image         
-   end  
+
   
   
   # The priority is based upon order of creation:
