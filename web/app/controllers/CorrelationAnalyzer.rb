@@ -40,11 +40,12 @@ class CorrelationAnalyzer
       result.wine_id = wine_id
       result.word = node.surface
       result.remarks = node.feature     
+      result.count = 1;
       info.add_to_dic(result)
     end until node.next.feature.include?("BOS/EOS")   
     
     return info
-  end 
+  end  
   
   def self.create_mecab()
     dir_path ="/usr/local/Cellar/mecab/0.996/lib/mecab/dic/"
@@ -72,6 +73,23 @@ class CorrelationAnalyzer
     return 1.0/(1 + sum_of_squares)
   end  
   
+  def make_gruff(src_wine,dst_wine)
+    sum_of_squares = 0.0
+    
+    src_wine.analyze_results_info.word_dic.each do |word,src_info|
+      if dst_wine.analyze_results_info.word_dic.include?(word)
+        dst_info = dst_wine.analyze_results_info.word_dic[word]
+        
+        diff = dst_info.count.to_i - src_info.count.to_i
+        sum_of_squares += Math::sqrt(diff ** 2)
+        
+      end
+    
+    end
+    
+    return 1.0/(1 + sum_of_squares)
+  end
+  
 end
 
 class AnalyzeResultInfo
@@ -83,7 +101,8 @@ class AnalyzeResultInfo
   
   def add_to_dic(result)
     if @word_dic.key?(result.word)
-      @word_dic[result.word].count_up
+      r = @word_dic[result.word]
+      @word_dic[result.word].count = r.count.to_i + 1
     else
       @word_dic.store(result.word,result)    
     end

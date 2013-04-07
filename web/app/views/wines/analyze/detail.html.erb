@@ -1,0 +1,16 @@
+<h1>Wine Analyze Detail</h1>
+<%= image_tag url_for(:action => 'image',:src_id => @src_wine.id,:dst_id => @dst_wine.id) %>
+<p>
+  <b>Id:</b>
+  <%= @src_wine.id %>
+</p>
+
+<p>
+  <b>Wine name:</b>
+  <%= @src_wine.wine_name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @src_wine.comments %>
+</p>

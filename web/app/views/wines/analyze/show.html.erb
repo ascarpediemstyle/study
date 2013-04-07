@@ -1,5 +1,5 @@
 <h1>Wine Analyze</h1>
-<%= image_tag url_for(:action => 'image') %>
+<%#= image_tag url_for(:action => 'image') %>
 <p>
   <b>Id:</b>
   <%= @wine.id %>
@@ -47,7 +47,8 @@
     <td><%= wine.wine_name %></td>
     <td><%= wine.comments.slice(0,200) %></td>
     <td><%= wine.price %></td>
-    <td><%= CorrelationAnalyzer::calc_correlation(@wine,wine) %></td> 
+    <td><%= CorrelationAnalyzer::calc_correlation(@wine,wine) %></td>
+    <td><%= link_to "detail", :controller =>"analyze",:action =>"detail",:src_id => @wine.id,:dst_id => wine.id %></td> 
      
   </tr>
 <% end %>

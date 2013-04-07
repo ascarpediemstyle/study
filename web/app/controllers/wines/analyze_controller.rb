@@ -15,8 +15,7 @@ class Wines::AnalyzeController < ApplicationController
     
     @wines.each do |wine|
       wine.analyze_results_info = CorrelationAnalyzer::create_analyze_result_info(wine.wine_id)
-    end
-    
+    end  
     
    
     respond_to do |format|
@@ -33,23 +32,35 @@ class Wines::AnalyzeController < ApplicationController
     end
   end
   
+  
   # GET /wines/analyze/1/detail
   # GET /wines/analyze/1/detail.json
-  def detail
+  def detail    
+    
+    @src_wine = Wine.find(params[:src_id])        
+    @dst_wine = Wine.find(params[:dst_id])         
+    
+    
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # dtail.html.erb
       format.json { render json: @wine }
     end    
   end
   
-  def image
+  def image    
+    
+    @src_wine = Wine.find(params[:src_id])        
+    @dst_wine = Wine.find(params[:dst_id])          
+    
+    @src_wine.analyze_results_info = CorrelationAnalyzer::create_analyze_result_info(@src_wine.wine_id)
+    @dst_wine.analyze_results_info = CorrelationAnalyzer::create_analyze_result_info(@dst_wine.wine_id)
     
     g = Gruff::Dot.new 500
     g.title = "My Graph" 
 
     g.theme_37signals
 
-    g.data("data1", [1, 3, 3, 6, 4, 3])
+    #g.data("data1", @src_wine.analyze_results_info.word_dic.values )
     g.data("data2", [7, 8, 7, 10, 8, 9])
     g.data("data3", [1, 2, 3, 5, 9, 8])
     g.data("data4", [9, 9, 8, 9, 10, 9])

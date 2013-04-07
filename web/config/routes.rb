@@ -9,6 +9,7 @@ Web::Application.routes.draw do
     resources :analyze do
       member do
         get 'image'
+        get 'detail'
       end
     end
   end
