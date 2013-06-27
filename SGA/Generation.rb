@@ -28,6 +28,7 @@ class Generation
     return @gene_list[i]
   end
   
+  #優秀な人をランダムで選ぶ。トーナメント選択
   def select()
     max_gene = nil
     
@@ -44,6 +45,7 @@ class Generation
     return max_gene   
   end
   
+  #子供の作成
   def Generation.crossing(f_gene,m_gene,gene1,gene2)
     col_size = f_gene.data.size    
     for i in 0.step(col_size - 1,1)
@@ -81,7 +83,8 @@ class Generation
     end  
     ave = ave / self.gene_size  
     elite = get_elite()  
-    ave_str = "Average : #{ave}  max : #{max}" 
+    #ave_str = "Average : #{ave}  max : #{max}"
+    ave_str = "#{ave}" 
     elite_str = "elite : #{elite.to_s}" 
     puts ave_str
     puts elite_str

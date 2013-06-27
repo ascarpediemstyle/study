@@ -13,6 +13,7 @@ ave_file.close
 elite_file = File.open("elite.txt","w")
 elite_file.close
 
+#世代の初期化
 def init_generation(poolsize,data_no)  
   generation = Generation.new
   for i in 0.step(poolsize -1, 1) do   
@@ -28,6 +29,7 @@ def init_generation(poolsize,data_no)
   return generation
 end
 
+#適法度関数
 def evalfit(sum)  
   eval = EvalBase - (TargetVal - sum).abs
   return eval  
@@ -45,6 +47,7 @@ def calc_sum(gean)
   return sum  
 end
 
+#遺伝子の値を計算
 def calc(generation)    
   for i in 0.step(generation.gene_size - 1, 1) do      
     gean = generation.get_gene(i)
@@ -53,6 +56,7 @@ def calc(generation)
   end  
 end
 
+#突然変異
 def mutation(generation)
   for i in 0.step(generation.gene_size - 1, 1) do      
     gene = generation.get_gene(i)
@@ -65,6 +69,9 @@ def mutation(generation)
     
 end
 
+
+
+#main
 generation = init_generation(Poolsize,DataNo)
 
 for gen_no in 0.step(100,1) do
@@ -72,8 +79,8 @@ for gen_no in 0.step(100,1) do
   next_generation = generation.copy()
   
   for i in 0.step(Poolsize/2 -1 ,1)
-    f_gene = generation.select()
-    m_gene = generation.select() 
+    f_gene = generation.select() #父
+    m_gene = generation.select() #母
   
     g1 = next_generation.get_gene(i * 2)
     g2 = next_generation.get_gene(i * 2 + 1)
